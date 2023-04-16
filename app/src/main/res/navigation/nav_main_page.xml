@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main_page"
+    app:startDestination="@id/mainPageFragment">
+
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="com.ozger.foodieexpress.ui.fragment.MainPageFragment"
+        android:label="fragment_main_page"
+        tools:layout="@layout/fragment_main_page" >
+        <action
+            android:id="@+id/toDetail"
+            app:destination="@id/detailFragmetn" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragmetn"
+        android:name="com.ozger.foodieexpress.ui.fragment.DetailFragmetn"
+        android:label="fragment_detail_fragmetn"
+        tools:layout="@layout/fragment_detail_fragmetn" >
+        <action
+            android:id="@+id/toCart"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.ozger.foodieexpress.ui.fragment.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
+</navigation>
