@@ -27,7 +27,9 @@ class FoodAdapter(var context:Context,var foodList:ArrayList<Foods>):RecyclerVie
         Log.e("mylog","work")
         val food=foodList.get(position)
         val rcylItem=holder.binding
+        val url="http://kasimadalan.pe.hu/yemekler/resimler/${food.foodImageName}"
         rcylItem.rcylMainImageName.text=food.foodName
+        Glide.with(context).load(url).override(300,300).into(rcylItem.rcylMainImage)
     }
 
 }
