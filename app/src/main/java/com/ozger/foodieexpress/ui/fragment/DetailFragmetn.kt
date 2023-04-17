@@ -6,19 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.RecyclerView.Adapter
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ozger.foodieexpress.R
 import com.ozger.foodieexpress.data.entity.Foods
 import com.ozger.foodieexpress.databinding.FragmentDetailFragmetnBinding
-import com.ozger.foodieexpress.ui.adapter.FoodAdapter
 
 
 class DetailFragmetn : Fragment() {
     private var totalCount=1
     private var totalPrice=0
-    lateinit var foodList:Foods
+    lateinit var food:Foods
     lateinit var binding:FragmentDetailFragmetnBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +25,8 @@ class DetailFragmetn : Fragment() {
         // Inflate the layout for this fragment
         binding=DataBindingUtil.inflate(layoutInflater,R.layout.fragment_detail_fragmetn,container,false)
         val bundle:DetailFragmetnArgs by navArgs()
-         foodList=bundle.foodList
+         food=bundle.food
+        binding.txtProductName.text=food.foodName
 
         binding.btnAdd.setOnClickListener {
             add()
@@ -37,15 +36,17 @@ class DetailFragmetn : Fragment() {
             minus()
         }
 
+        binding.btnAddCart.setOnClickListener {
+            addCart(it)
+        }
+
         return binding.root
     }
     fun add(){
         totalCount++
         binding.txtProductCount.text=totalCount.toString()
         calTotalPrice()
-        if(totalCount==1){
-            binding.buttonColor="#FFC80606"
-        }
+
     }
 
     fun minus(){
@@ -53,16 +54,20 @@ class DetailFragmetn : Fragment() {
             totalCount--
             binding.txtProductCount.text=totalCount.toString()
             calTotalPrice()
-        }else{
-            binding.buttonColor="#989393"
         }
 
     }
 
     fun calTotalPrice(){
-        totalPrice=totalCount.toInt()*foodList.foodPrice
+        totalPrice=totalCount.toInt()*food.foodPrice
         binding.txtPrice.text=totalPrice.toString()
     }
 
+    fun addCart(view: View){
+        val transit=DetailFragmetnDirections.toCart()
+        Navigation.findNavController(view).navigate(transit)
+
+        //  TODO YAPILACAK
+    }
 
 }

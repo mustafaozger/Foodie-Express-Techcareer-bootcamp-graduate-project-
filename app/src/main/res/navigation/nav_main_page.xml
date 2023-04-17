@@ -23,7 +23,7 @@
             android:id="@+id/toCart"
             app:destination="@id/cartFragment" />
         <argument
-            android:name="foodList"
+            android:name="food"
             app:argType="com.ozger.foodieexpress.data.entity.Foods" />
     </fragment>
     <fragment
