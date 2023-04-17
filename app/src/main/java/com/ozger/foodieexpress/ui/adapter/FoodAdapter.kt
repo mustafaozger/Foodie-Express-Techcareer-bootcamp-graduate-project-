@@ -20,7 +20,7 @@ class FoodAdapter(var context:Context,var foodList:ArrayList<Foods>):RecyclerVie
     }
 
     override fun getItemCount(): Int {
-        return foodList.size
+        return foodList.size    
     }
 
     override fun onBindViewHolder(holder: FoodVH, position: Int) {
