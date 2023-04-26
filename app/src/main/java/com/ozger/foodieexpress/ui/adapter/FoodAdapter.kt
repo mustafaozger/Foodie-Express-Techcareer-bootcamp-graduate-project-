@@ -14,7 +14,7 @@ import com.ozger.foodieexpress.data.entity.Foods
 import com.ozger.foodieexpress.databinding.RcylFoodMainBinding
 import com.ozger.foodieexpress.ui.fragment.MainPageFragmentDirections
 
-class FoodAdapter(var context:Context,var foodList:ArrayList<Foods>):RecyclerView.Adapter<FoodAdapter.FoodVH>() {
+class FoodAdapter(var context:Context,var foodList:List<Foods>):RecyclerView.Adapter<FoodAdapter.FoodVH>() {
     inner class FoodVH(var binding: RcylFoodMainBinding):RecyclerView.ViewHolder(binding.root){}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodVH {
