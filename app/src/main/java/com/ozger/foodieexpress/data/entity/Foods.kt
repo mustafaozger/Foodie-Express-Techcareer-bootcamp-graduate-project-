@@ -1,7 +1,7 @@
 package com.ozger.foodieexpress.data.entity
 
-data class Foods(var foodId:Int,
-                 var foodName:String,
-                 var foodImageName:String,
-                 var foodPrice:Int):java.io.Serializable {
+data class Foods(var yemek_id:Int,
+                 var yemek_adi:String,
+                 var yemek_resim_adi:String,
+                 var yemek_fiyat:Int):java.io.Serializable {
 }

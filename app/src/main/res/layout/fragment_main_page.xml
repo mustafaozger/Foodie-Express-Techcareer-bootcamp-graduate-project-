@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+            <variable
+                name="foodAdapter"
+                type="com.ozger.foodieexpress.ui.adapter.FoodAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,6 +31,7 @@
             android:id="@+id/rcylDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:adapter="@{foodAdapter}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
             />

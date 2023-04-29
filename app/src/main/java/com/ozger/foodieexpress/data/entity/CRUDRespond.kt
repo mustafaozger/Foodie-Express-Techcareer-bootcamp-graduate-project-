@@ -1,4 +1,4 @@
 package com.ozger.foodieexpress.data.entity
 
-data class CRUDRespond(var succes:String,var message:String)  {
+data class CRUDRespond(var success:String, var message:String)  {
 }

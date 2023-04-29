@@ -7,10 +7,10 @@ import androidx.lifecycle.MutableLiveData
 import com.ozger.foodieexpress.data.entity.CRUDRespond
 import com.ozger.foodieexpress.data.entity.FoodRespond
 import com.ozger.foodieexpress.retrofit.ApiUtils
+import com.ozger.foodieexpress.retrofit.Utils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.Objects
 
 
 class FoodDaoRepository {
@@ -25,11 +25,13 @@ class FoodDaoRepository {
         return foodList
     }
 
-    fun showFood(){
+     fun showFood(){
         foodDao.getAllFood().enqueue(object :Callback<FoodRespond>{
             override fun onResponse(call: Call<FoodRespond>, response: Response<FoodRespond>) {
-
-
+                Log.d("hatam",response.toString())
+                Log.d("hatam",response.body().toString())
+                var list=response.body()!!.yemekler
+                foodList.value= list
             }
 
             override fun onFailure(call: Call<FoodRespond>, t: Throwable) {
@@ -40,7 +42,7 @@ class FoodDaoRepository {
 
 
     fun addCart(yemek_adi:String, yemek_resim_adi:String, yemek_fiyat:Int, yemek_siparis_adet:Int){
-        foodDao.addCart(yemek_adi, yemek_resim_adi, yemek_fiyat, yemek_siparis_adet,"mustafa_ozger").enqueue(object : Callback<CRUDRespond>{
+        foodDao.addCart(yemek_adi, yemek_resim_adi, yemek_fiyat, yemek_siparis_adet,"mustafaozger").enqueue(object : Callback<CRUDRespond>{
             override fun onResponse(call: Call<CRUDRespond>, response: Response<CRUDRespond>) {
 
             }override fun onFailure(call: Call<CRUDRespond>, t: Throwable) {}

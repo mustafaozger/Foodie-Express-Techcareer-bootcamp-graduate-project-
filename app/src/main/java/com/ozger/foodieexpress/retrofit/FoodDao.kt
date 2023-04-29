@@ -11,7 +11,7 @@ import retrofit2.http.POST
 
 interface FoodDao {
     @GET("yemekler/tumYemekleriGetir.php")
-    fun getAllFood():Call<FoodRespond>
+     fun getAllFood():Call<FoodRespond>
 
 
     @POST("yemekler/sepettekiYemekleriGetir.php")

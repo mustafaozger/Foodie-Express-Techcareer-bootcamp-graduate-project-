@@ -25,6 +25,9 @@
         <argument
             android:name="food"
             app:argType="com.ozger.foodieexpress.data.entity.Foods" />
+        <action
+            android:id="@+id/action_detailFragmetn_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/cartFragment"

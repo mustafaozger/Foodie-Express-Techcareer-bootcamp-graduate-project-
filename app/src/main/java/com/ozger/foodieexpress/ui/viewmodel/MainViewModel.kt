@@ -11,11 +11,10 @@ class MainViewModel:ViewModel() {
 
     init{
         showFood()
-
         foodListVM=foodRepo.takeFood()
     }
 
-    fun showFood(){
+   fun showFood(){
         foodRepo.showFood()
     }
 }

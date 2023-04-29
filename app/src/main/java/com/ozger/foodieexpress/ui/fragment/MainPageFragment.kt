@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ozger.foodieexpress.R
 import com.ozger.foodieexpress.data.entity.Foods
 import com.ozger.foodieexpress.databinding.FragmentMainPageBinding
+import com.ozger.foodieexpress.retrofit.Utils
 import com.ozger.foodieexpress.ui.adapter.FoodAdapter
 import com.ozger.foodieexpress.ui.viewmodel.MainViewModel
 
@@ -22,16 +23,15 @@ class MainPageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding=DataBindingUtil.inflate(layoutInflater,R.layout.fragment_main_page,container,false)
+        binding=DataBindingUtil.inflate(inflater,R.layout.fragment_main_page,container,false)
         binding.rcylDetail.layoutManager= StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         viewModel.foodListVM.observe(viewLifecycleOwner){
-            Log.d("hatam","foodListMain ${it.size.toString()}")
             val adapter=FoodAdapter(requireContext(),it)
-            Log.d("hatam","foodListMain ${it.size.toString()}")
-
-            binding.rcylDetail.adapter=adapter
+            binding.foodAdapter=adapter
         }
+
+
         return binding.root
     }
 

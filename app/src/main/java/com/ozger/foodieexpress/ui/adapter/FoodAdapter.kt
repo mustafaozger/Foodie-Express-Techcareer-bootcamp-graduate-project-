@@ -1,7 +1,6 @@
 package com.ozger.foodieexpress.ui.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +20,6 @@ class FoodAdapter(var context:Context,var foodList:List<Foods>):RecyclerView.Ada
         val binding:RcylFoodMainBinding=DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.rcyl_food_main,parent,false)
         return FoodVH(binding)
     }
-
     override fun getItemCount(): Int {
         return foodList.size    
     }
@@ -29,18 +27,17 @@ class FoodAdapter(var context:Context,var foodList:List<Foods>):RecyclerView.Ada
     override fun onBindViewHolder(holder: FoodVH, position: Int) {
         val food=foodList.get(position)
         val rcylItem=holder.binding
-        val url="http://kasimadalan.pe.hu/yemekler/resimler/${food.foodImageName}"
-        rcylItem.rcylMainImageName.text=food.foodName
+
+        val url="http://kasimadalan.pe.hu/yemekler/resimler/${food.yemek_resim_adi}"
+        rcylItem.rcylMainImageName.text=food.yemek_adi
         Glide.with(context).load(url).override(300,300).into(rcylItem.rcylMainImage)
 
         rcylItem.btnDetail.setOnClickListener {
             transition(it,food)
         }
     }
-
     fun transition(view: View,food:Foods){
         val transition=MainPageFragmentDirections.toDetail(food=food)
         Navigation.findNavController(view).navigate(transition)
-
     }
 }
