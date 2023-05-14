@@ -21,7 +21,9 @@
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:subtitleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+           app:title="Foodie Express" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,6 +37,17 @@
                 android:id="@+id/rcyl_cart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/orange"
+                android:text="Go to Checkout"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                app:cornerRadius="15sp" />
         </LinearLayout>
 
     </LinearLayout>

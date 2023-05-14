@@ -5,6 +5,7 @@ import com.ozger.foodieexpress.data.entity.Foods
 import com.ozger.foodieexpress.retrofit.FoodDao
 import androidx.lifecycle.MutableLiveData
 import com.ozger.foodieexpress.data.entity.CRUDRespond
+import com.ozger.foodieexpress.data.entity.Cart
 import com.ozger.foodieexpress.data.entity.FoodRespond
 import com.ozger.foodieexpress.retrofit.ApiUtils
 import com.ozger.foodieexpress.retrofit.Utils
@@ -15,14 +16,19 @@ import retrofit2.Response
 
 class FoodDaoRepository {
     var foodList:MutableLiveData<List<Foods>>
+    var cartList:MutableLiveData<List<Foods>>
     var foodDao:FoodDao
 
     init {
+        cartList= MutableLiveData()//TODO LOOOK
         foodList = MutableLiveData()
         foodDao = ApiUtils.getFoodDao()
     }
     fun takeFood():MutableLiveData<List<Foods>>{
         return foodList
+    }
+    fun takeFoodFromCart(): MutableLiveData<List<Foods>> {
+        return cartList
     }
 
      fun showFood(){
